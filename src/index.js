@@ -1,17 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ApolloProvider } from "@apollo/client";
 import App from "./App";
-import Home from "./routes/Home";
+import client from "./apollo";
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />}></Route>
-      <Route path="/home" element={<Home />}></Route>
-    </Routes>
-  </BrowserRouter>,
+  <ApolloProvider client={client}>
+    <App />
+  </ApolloProvider>,
   document.getElementById("root")
 );
 
